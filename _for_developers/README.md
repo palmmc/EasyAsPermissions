@@ -4,7 +4,7 @@
 
 ***
 ## Adding to Plugin
-1) Download `eap_api.py` latest [release](../releases/).
+1) Download `eap_api.py` latest [release](../../../releases/).
 2) Drop it into your plugin at the same level as your entry point script.
 3) Add the following import to the top of your script:
    <br><br>
