@@ -70,6 +70,7 @@ Reset command|✅
 Permission commands|✅
 Documentation|🔷
 Developer API|🔷
+Addon Integration|🔶
 
 ✅ - Complete
 🔷 - Work in Progress
