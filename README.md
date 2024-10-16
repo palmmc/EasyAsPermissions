@@ -47,7 +47,7 @@ A plugin for [Endstone](https://github.com/EndstoneMC/endstone) that allows you 
    - Click **Submit**.
 9) You will now have access to anything that configure to use the `custom.command.star` permission!
    > - This plugin does not provide uses for permissions; to use them with commands, consider trying **[EasyAsCommands](../../../EasyAsCommands/)**.
-   > - Feel free to remove it if you don't want it by repeating the steps using 'Remove', or using the '`/resetpermissions` command.
+   > - Feel free to remove it if you don't want it by repeating the steps using 'Remove', or using the '`/resetpermissions`' command.
 
 ### *Using JSON Editor*
 1) For more advanced users, a more efficient approach is to edit the JSON directly.
