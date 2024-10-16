@@ -5,8 +5,8 @@
 
 </div>
 
-# EasyAsCommands
-A plugin for [Endstone](https://github.com/EndstoneMC/endstone) that allows you to setup your own slash commands without any programming!
+# EasyAsPermissions
+A plugin for [Endstone](https://github.com/EndstoneMC/endstone) that allows you to manage player permissions without any programming!
 
 # Installation
 1) Download the latest [release](../../releases).
@@ -18,55 +18,58 @@ A plugin for [Endstone](https://github.com/EndstoneMC/endstone) that allows you 
 
 # Features
 - ## Manager UI
-  - Create, remove, and edit slash commands using a simple UI.
-  - Configure the name, description, arguments, aliases, and permissions.
-  - Add functionality on command execution.
+  - Create, remove, and edit permissions using a simple UI.
+  - Manage player roles.
+- ## Roles UI
+  - Setup and apply roles/groups containing multiple permissions to players.
 
 # Commands
-- `/commands` - `easyas.command.manager`
-- `/resetcommands` - `easyas.command.reset`
+- `/permsmanager` - `easyas.permissions.manager`
+- `/resetpermissions` - `easyas.permissions.reset`
+- `/perm` - `easyas.command.perm`
+- `/role` - `easyas.command.role`
 
 # Tutorial
 ### *Using In-Game UI*
-1) With **operator** or the `easyas.command.manager` permission, run the `/commands` command.
-2) This is where you can add, remove, and edit existing commands.
-   - Next click 'Add Command'.
-3) Here you can configure all of the different attributes of your command.
-   - For more information, refer to the wiki page, [Command Attributes](../../wiki/Command-Attributes).
-   - Try creating the following command:
-     - Set the name to '`star`'.
-     - Add a new usage '`/star`'.
-     - Add the permission '`easyas.command.all`'.
-   - After that, scroll to the bottom and click **Functionality**.
-4) This is where you can make the command *do* something when it is executed. Let's do a simple example.
-   - Click 'Add Execution', and type '`give "{player}" nether_star 1`'.
-   - If you want to learn more about functionality, see the wiki page [Functionality](../../wiki/Functionality).
-   - When you are finished, hit **Submit**, then back out again to the main editor.
-5) Click **Submit**, and your server will reload to apply your new command.
-6) Now run `/star`; you should be given a nether star.
+1) With **operator** or the `easyas.permissions.manager` permission, run the `/permsmanager` command.
+2) This is where you can add, remove, and edit existing permissions, roles, and players.
+   - Next click 'Add Permission'.
+3) Here you can configure all of the different attributes of your new permission.
+   - For more information, refer to the wiki page, [COMING_SOON](../../wiki/Command-Attributes).
+   - Try creating the following permission:
+     - Set the name to '`custom.command.star`'.
+     - Set the default access to '`op`'.
+5) Click **Submit**, and your server will reload to apply your new permission.
+6) Now let's give you the permission; Open the manager back up and click 'Edit Player'.
+7) Here you can manage an individual player's permissions and roles.
+   - Enter your name, and hit **Submit**.
+   - Click 'Add Permission', and enter '`custom.command.star`'.
+   - Click **Submit**.
+9) You will now have access to anything that configure to use the `custom.command.star` permission!
+   > - This plugin does not provide uses for permissions; to use them with commands, consider trying **[EasyAsCommands](../../../EasyAsCommands/)**.
+   > - Feel free to remove it if you don't want it by repeating the steps using 'Remove', or using the '`/resetpermissions` command.
 
 ### *Using JSON Editor*
 1) For more advanced users, a more efficient approach is to edit the JSON directly.
 To start, navigate to your `/bedrock_server/config/` folder; the `/config/` folder should be in the same directory as your `/plugins/` folder.
-2) Open `command_manager.json` in your choice of text editor. You don't need anything fancy; Notepad will do.
-3) Begin editing. Refer to the wiki page [JSON Arguments](../../wiki/JSON-Arguments) for available arguments.
+2) Open `permissions_manager.json` in your choice of text editor. You don't need anything fancy; Notepad will do.
+3) Begin editing. Refer to the wiki page [COMING_SOON](../../wiki/JSON-Arguments) for available arguments.
 Once done, save the file and reload/restart your server for the changes to take effect.
 
 ### 🥳 Congratulations!
-You've created your first command!
+You've created your first permissions!
 
 I hope you find this plugin useful! Enjoy!
 
 # Feature Roadmap
 **Feature**|**Status**
 :-----:|:-----:
-Command Manager UI|✅
+Permissions Manager UI|✅
+Role Manager UI|✅
 Reset command|✅
+Permission commands|✅
 Documentation|🔷
-Placeholder Support|🔷
-Prefab Events|🔶
-Developer API|🔶
-Addon Integration|🔶
+Developer API|🔷
 
 ✅ - Complete
 🔷 - Work in Progress
