@@ -23,7 +23,7 @@ class PermissionsManager:
     class MyPlugin(Plugin):
         manager = PermissionsManager(self)
 
-        ## Create Permission ##
+        ## Registering Permissions ##
         def example_create_permission(self: Plugin, player: Player):
             manager.permissions.set_permission(
                 "example.permission", "Example permission.", "op"
@@ -34,7 +34,7 @@ class PermissionsManager:
 
     ```python
 
-            ## Add Permission to Player ##
+            ## Adding Permissions to Players ##
             def example_add_permission(self: Plugin, player: Player):
                 manager.players.add_permission_to_player(player, "example.permission")
                 player.send_message("Permission added to player.")
@@ -43,7 +43,7 @@ class PermissionsManager:
 
     ```python
 
-            ## Role Example ##
+            ## Using Roles ##
             def example_role(self: Plugin, player: Player):
                 manager.roles.set_role("newrole", [], ["Vincent"])
                 manager.roles.add_permission_to_role("newrole", "example.permission")
@@ -57,21 +57,42 @@ class PermissionsManager:
         self._plugin: Plugin = plugin
         self._eap: Plugin = plugin.server.plugin_manager.get_plugin("EasyAsPermissions")
         self.players = self.PlayerManager(self)
+        """
+        Contains player-based permission methods.
+        """
         self.permissions = self.PermManager(self)
+        """
+        Contains methods for managing permissions.
+        """
         self.roles = self.RoleManager(self)
+        """
+        Contains methods for managing roles.
+        """
 
     class PlayerManager:
         def __init__(self, permissions_manager):
             self._plugin: Plugin = permissions_manager.plugin
             self.manager: PermissionsManager = permissions_manager
+            """
+            PermissionsManager object.
+            """
 
         def add_permission_to_player(self, player: Player, permission: str):
+            """
+            Grants a permission to a player.
+            """
             player.add_attachment(self._eap, permission, True)
 
         def remove_permission_from_player(self, player: Player, permission: str):
+            """
+            Revokes a permission from a player.
+            """
             player.add_attachment(self._eap, permission, False)
 
         def add_role_to_player(self, player: Player, role: str):
+            """
+            Applies a player to a role, granting them all associated permissions.
+            """
             permissionsData = read_permissions_config()
             permissionsData["roles"][role]["players"].append(player.name)
             role = permissionsData["roles"][role]
@@ -80,6 +101,9 @@ class PermissionsManager:
             write_permissions_config(permissionsData)
 
         def remove_role_from_player(self, player: Player, role: str):
+            """
+            Removes a player from a role, revoking all associated permissions.
+            """
             permissionsData = read_permissions_config()
             permissionsData["roles"][role]["players"].remove(player.name)
             role = permissionsData["roles"][role]
@@ -91,6 +115,9 @@ class PermissionsManager:
         def __init__(self, permissions_manager):
             self._plugin: Plugin = permissions_manager.plugin
             self.manager: PermissionsManager = permissions_manager
+            """
+            PermissionsManager object.
+            """
 
         def set_permission(
             self,
@@ -98,6 +125,9 @@ class PermissionsManager:
             description: str = "New permission.",
             default: str = "op",
         ):
+            """
+            Registers or updates a permission with the given name, description, and default access level.
+            """
             permissionData = read_permissions_config()
             permissionData["permissions"][name] = {
                 "description": description,
@@ -109,6 +139,9 @@ class PermissionsManager:
             )
 
         def delete_permission(self, name: str):
+            """
+            Deletes a permission.
+            """
             permissionData = read_permissions_config()
             permissionData["permissions"].pop(name)
             write_permissions_config(permissionData)
@@ -120,10 +153,16 @@ class PermissionsManager:
         def __init__(self, permissions_manager):
             self._plugin: Plugin = permissions_manager.plugin
             self.manager: PermissionsManager = permissions_manager
+            """
+            PermissionsManager object.
+            """
 
         def set_role(
             self, name: str, permissions: list[str] = [], players: list[str] = []
         ):
+            """
+            Registers or updates a role with the given name, permissions, and players.
+            """
             permissionData = read_permissions_config()
             permissionData["roles"][name] = {
                 "permissions": permissions,
@@ -133,17 +172,26 @@ class PermissionsManager:
             self._plugin.logger("§c[EAC] §rRole §a'§f{name}§a' §rhas been registered.")
 
         def delete_role(self, name: str):
+            """
+            Deletes a role.
+            """
             permissionData = read_permissions_config()
             permissionData["roles"].pop(name)
             write_permissions_config(permissionData)
             self._plugin.logger("§c[EAC] §rRole §a'§f{name}§a' §rhas been deleted.")
 
         def add_permission_to_role(self, role: str, permission: str):
+            """
+            Adds a permission to a role.
+            """
             permissionData = read_permissions_config()
             permissionData["roles"][role]["permissions"].append(permission)
             write_permissions_config(permissionData)
 
         def remove_permission_from_role(self, role: str, permission: str):
+            """
+            Removes a permission from a role.
+            """
             permissionData = read_permissions_config()
             permissionData["roles"][role]["permissions"].remove(permission)
             write_permissions_config(permissionData)
