@@ -18,7 +18,7 @@ class PermissionsManager:
 
     ### Example
     ```python
-    from endstone_easyaspermissions import PermissionsManager
+    from .eap_api.py import PermissionsManager
 
     class MyPlugin(Plugin):
         manager = PermissionsManager(self)
