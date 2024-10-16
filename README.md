@@ -35,7 +35,7 @@ A plugin for [Endstone](https://github.com/EndstoneMC/endstone) that allows you 
 2) This is where you can add, remove, and edit existing permissions, roles, and players.
    - Next click 'Add Permission'.
 3) Here you can configure all of the different attributes of your new permission.
-   - For more information, refer to the wiki page, [COMING_SOON](../../wiki/Command-Attributes).
+   - For more information, refer to the wiki page, [Permission Attributes](../../wiki/Permission-Attributes).
    - Try creating the following permission:
      - Set the name to '`custom.command.star`'.
      - Set the default access to '`op`'.
@@ -53,7 +53,7 @@ A plugin for [Endstone](https://github.com/EndstoneMC/endstone) that allows you 
 1) For more advanced users, a more efficient approach is to edit the JSON directly.
 To start, navigate to your `/bedrock_server/config/` folder; the `/config/` folder should be in the same directory as your `/plugins/` folder.
 2) Open `permissions_manager.json` in your choice of text editor. You don't need anything fancy; Notepad will do.
-3) Begin editing. Refer to the wiki page [COMING_SOON](../../wiki/JSON-Arguments) for available arguments.
+3) Begin editing. Refer to the wiki page [JSON Arguments](../../wiki/JSON-Arguments) for available arguments.
 Once done, save the file and reload/restart your server for the changes to take effect.
 
 ### 🥳 Congratulations!
@@ -68,8 +68,8 @@ Permissions Manager UI|✅
 Role Manager UI|✅
 Reset command|✅
 Permission commands|✅
-Documentation|🔷
-Developer API|🔷
+Documentation|✅
+Developer API|✅
 Addon Integration|🔶
 
 ✅ - Complete
