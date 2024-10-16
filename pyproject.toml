@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling<=1.18.0"]  
+build-backend = "hatchling.build"
+
+[project]
+name = "endstone_easyaspermissions"
+version = "0.1.0"
+dependencies = []
+authors = [
+    { name = "palm1" },
+]
+description = "Endstone Permissions Plugin for the EasyAs suite."
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["endstone", "easyas", "permissions", "server"]
+
+[project.urls]
+Homepage = "https://github.com/palmmc/EasyAsPermissions"
+
+[project.entry-points."endstone"]
+easyaspermissions = "endstone_easyaspermissions:EasyAsPermissions"
