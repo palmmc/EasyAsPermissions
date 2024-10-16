@@ -42,9 +42,9 @@ def edit_player(self: Plugin, player: Player):
     )
 
 
-def edit_player_permissions(self: Plugin, player: Player, permplayer):
+def edit_player_permissions(self: Plugin, player: Player, permplayer: Player):
     form = ActionFormData()
-    form.title(f"Edit: {permplayer}")
+    form.title(f"Edit: {permplayer.name}")
     form.button("Add Permission", "textures/ui/smithing-table-plus.png")
     form.button("Remove Permission", "textures/ui/dark_minus.png")
     form.button("Add Role", "textures/ui/smithing-table-plus.png")
@@ -69,7 +69,7 @@ def edit_player_permissions(self: Plugin, player: Player, permplayer):
     )
 
 
-def add_player_permission(self: Plugin, player: Player, permplayer):
+def add_player_permission(self: Plugin, player: Player, permplayer: Player):
     form = ModalFormData()
     form.title("Add Permission")
     form.text_field("Permission Name", "easyas.permission.example")
@@ -93,7 +93,7 @@ def add_player_permission(self: Plugin, player: Player, permplayer):
     )
 
 
-def remove_player_permission(self: Plugin, player: Player, permplayer):
+def remove_player_permission(self: Plugin, player: Player, permplayer: Player):
     form = ModalFormData()
     form.title("Remove Permission")
     form.text_field("Permission Name", "easyas.permission.example")
@@ -117,7 +117,7 @@ def remove_player_permission(self: Plugin, player: Player, permplayer):
     )
 
 
-def add_player_role(self: Plugin, player: Player, permplayer):
+def add_player_role(self: Plugin, player: Player, permplayer: Player):
     form = ModalFormData()
     form.title("Add Role")
     form.text_field("Role Name", "vip")
@@ -141,7 +141,7 @@ def add_player_role(self: Plugin, player: Player, permplayer):
     )
 
 
-def remove_player_role(self: Plugin, player: Player, permplayer):
+def remove_player_role(self: Plugin, player: Player, permplayer: Player):
     form = ModalFormData()
     form.title("Remove Role")
     form.text_field("Role Name", "vip")
