@@ -35,7 +35,7 @@ def manage_roles(self: Plugin, player: Player):
         if result.canceled:
             return
         if result.selection == 0:
-            add_role(self, player, {"players": [], "permissions": []})
+            add_role(self, player, {"permissions": [], "players": []})
         elif result.selection == 1:
             remove_role(self, player)
         else:
@@ -47,8 +47,8 @@ def manage_roles(self: Plugin, player: Player):
                 player,
                 {
                     "name": roleName,
-                    "players": role["players"],
                     "permissions": role["permissions"],
+                    "players": role["players"],
                 },
             )
 
@@ -72,7 +72,7 @@ def add_role(self: Plugin, player: Player, role):
         if roleName in permissionData["roles"]:
             error_custom(player, f"Role '{roleName}' already exists.")
             return
-        permissionData["roles"][roleName] = {"players": [], "permissions": []}
+        permissionData["roles"][roleName] = {"permissions": [], "players": []}
         write_permissions_config(permissionData)
         send_custom(player, f"Role '{roleName}' has been added.")
 
@@ -274,8 +274,8 @@ def submit_role(self: Plugin, player: Player, role):
         return
     permissionData = read_permissions_config()
     permissionData["roles"][role["name"]] = {
-        "players": role["players"],
         "permissions": role["permissions"],
+        "players": role["players"],
     }
     write_permissions_config(permissionData)
     send_custom(
