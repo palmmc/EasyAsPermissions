@@ -3,6 +3,8 @@
   
 [![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](../../wiki/ "Go to project documentation")
 
+[![view - API](https://img.shields.io/badge/view-Developer_API-red?style=for-the-badge)](/_for_developers/README.md "Go to project documentation")
+
 </div>
 
 # EasyAsPermissions
