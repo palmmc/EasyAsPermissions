@@ -16,7 +16,7 @@
 # Usage
 The API includes many useful implementations that can be used to manage player permissions.
 
-Here is a list of all of available methods and attributes that can be used:
+Here is a list of all available methods and attributes that can be used:
 # `class` PermissionsManager
 Parent class for permissions management.
 
